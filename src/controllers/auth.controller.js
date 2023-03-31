@@ -63,6 +63,8 @@ export default {
         
     },
     perfil(req, res){
+
+        return res.status(200).json({user: req.user})
         
     },
     logout(req, res){
