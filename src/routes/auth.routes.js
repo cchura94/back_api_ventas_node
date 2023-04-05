@@ -2,9 +2,9 @@ import { Router } from "express"
 import authController from "./../controllers/auth.controller"
 import * as authMiddleware from "./../middlewares/auth.middleware"
 
-export const Route = Router()
+export const RouteAuth = Router()
 
-Route.post('/auth/login', authController.login);
-Route.post('/auth/register', authController.register);
-Route.get('/auth/perfil', authMiddleware.auth, authController.perfil);
-Route.post('/auth/logout', authMiddleware.auth, authController.logout);
+RouteAuth.post('/auth/login', authController.login);
+RouteAuth.post('/auth/register', authController.register);
+RouteAuth.get('/auth/perfil', authMiddleware.auth, authController.perfil);
+RouteAuth.post('/auth/logout', authMiddleware.auth, authController.logout);

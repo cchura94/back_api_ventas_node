@@ -14,7 +14,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Categoria.init({
-    nombre: DataTypes.STRING,
+    nombre: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "El nombre de categoria no deberia ser vacio",
+        }
+      }
+    },
     detalle: DataTypes.TEXT,
     estado: DataTypes.INTEGER
   }, {

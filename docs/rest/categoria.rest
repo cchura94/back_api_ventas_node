@@ -1,0 +1,24 @@
+GET http://127.0.0.1:3000/api/v1/categoria
+
+### Guardar categoria
+POST http://127.0.0.1:3000/api/v1/categoria
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjcmlzdGlhbkBtYWlsLmNvbSIsInRpbWUiOiIyMDIzLTA0LTA1VDAyOjA5OjU0LjkwMVoiLCJpYXQiOjE2ODA2NjA1OTQsImV4cCI6MTY4MDY2NDE5NH0.7B9rCY-TqF-5_XcjFk4-pXTsxXtbms3ocDrQku2016U
+
+{
+    "detalle": "JUGUETES para oficinas"
+}
+
+### Mostrar categoria
+POST http://127.0.0.1:3000/api/v1/categoria-mostrar
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjcmlzdGlhbkBtYWlsLmNvbSIsInRpbWUiOiIyMDIzLTA0LTA1VDAyOjA5OjU0LjkwMVoiLCJpYXQiOjE2ODA2NjA1OTQsImV4cCI6MTY4MDY2NDE5NH0.7B9rCY-TqF-5_XcjFk4-pXTsxXtbms3ocDrQku2016U
+
+{
+    "id": 2
+}
+
+### ELIMINAR
+
+DELETE http://127.0.0.1:3000/api/v1/categoria/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjcmlzdGlhbkBtYWlsLmNvbSIsInRpbWUiOiIyMDIzLTA0LTA1VDAyOjA5OjU0LjkwMVoiLCJpYXQiOjE2ODA2NjA1OTQsImV4cCI6MTY4MDY2NDE5NH0.7B9rCY-TqF-5_XcjFk4-pXTsxXtbms3ocDrQku2016U
