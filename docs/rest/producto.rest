@@ -1,0 +1,15 @@
+GET http://127.0.0.1:3000/api/v1/producto?page=1&limit=5&q=&categoria_id=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjcmlzdGlhbkBtYWlsLmNvbSIsInRpbWUiOiIyMDIzLTA0LTA2VDAxOjMwOjM5LjA0OVoiLCJpYXQiOjE2ODA3NDQ2MzksImV4cCI6MTY4MDc0ODIzOX0.7IwZureV_N8yx-FqCIcjut_bZh7iA9xk1b-DRxajcDY
+
+### Guardar producto
+
+POST http://127.0.0.1:3000/api/v1/producto
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjcmlzdGlhbkBtYWlsLmNvbSIsInRpbWUiOiIyMDIzLTA0LTA2VDAxOjMwOjM5LjA0OVoiLCJpYXQiOjE2ODA3NDQ2MzksImV4cCI6MTY4MDc0ODIzOX0.7IwZureV_N8yx-FqCIcjut_bZh7iA9xk1b-DRxajcDY
+Content-Type: application/json
+
+{
+    "nombre": "CAMISA",
+    "precio": 120.98,
+    "stock": 12,
+    "categoriaId": 1
+}

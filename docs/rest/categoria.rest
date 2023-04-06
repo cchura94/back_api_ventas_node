@@ -3,10 +3,10 @@ GET http://127.0.0.1:3000/api/v1/categoria
 ### Guardar categoria
 POST http://127.0.0.1:3000/api/v1/categoria
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjcmlzdGlhbkBtYWlsLmNvbSIsInRpbWUiOiIyMDIzLTA0LTA1VDAyOjA5OjU0LjkwMVoiLCJpYXQiOjE2ODA2NjA1OTQsImV4cCI6MTY4MDY2NDE5NH0.7B9rCY-TqF-5_XcjFk4-pXTsxXtbms3ocDrQku2016U
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjcmlzdGlhbkBtYWlsLmNvbSIsInRpbWUiOiIyMDIzLTA0LTA2VDAxOjMwOjM5LjA0OVoiLCJpYXQiOjE2ODA3NDQ2MzksImV4cCI6MTY4MDc0ODIzOX0.7IwZureV_N8yx-FqCIcjut_bZh7iA9xk1b-DRxajcDY
 
 {
-    "detalle": "JUGUETES para oficinas"
+    "nombre": "PRUEBA"
 }
 
 ### Mostrar categoria

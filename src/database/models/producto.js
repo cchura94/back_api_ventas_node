@@ -11,10 +11,31 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      models.Producto.belongsTo(models.Categoria, {
+        foreignKey: "categoriaId"
+      })
+
+      models.Producto.belongsToMany(models.Pedido, {
+        through: "PedidoProducto"
+      })
     }
   }
   Producto.init({
-    nombre: DataTypes.STRING,
+    nombre: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          args: true,
+          msg: 'El Campo Nombre no puede estar vacio'
+        },
+        len: {
+          args: [3, 100],
+          msg: "El nombre debe tener entre 3 y 100 caracteres"
+        }
+      }
+    },
     precio: DataTypes.DECIMAL,
     stock: DataTypes.INTEGER,
     imagen: DataTypes.STRING,
