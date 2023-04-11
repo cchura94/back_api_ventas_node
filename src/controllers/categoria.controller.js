@@ -45,7 +45,11 @@ export default {
 
         const cat = await models.Categoria.findByPk(id);
         if (cat) {
-            await models.Categoria.findByIdAndUpdate(cat.id, { nombre, detalle })
+            await models.Categoria.update({ nombre, detalle }, {
+                where: {
+                    id: cat.id
+                }
+            })
             return res.status(200).json({ message: "categoria Actualizada" })
         } else {
             return res.status(404).json({ message: "categoria No encontrada" })
@@ -60,6 +64,8 @@ export default {
                 id: id
             },
         });
+
+        return res.status(200).json({ message: "categoria Eliminada" })
 
     }
 }
