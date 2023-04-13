@@ -6,7 +6,7 @@ export default {
         try{
             // api/producto?q=&page=3&limit=10&categoria_id=2
             let q = req.query.q
-            let cat_id = req.query.categoria_id
+            // let cat_id = req.query.categoria_id
             let page = parseInt(req.query.page)
             let limit = parseInt(req.query.limit)
 
@@ -17,7 +17,7 @@ export default {
                     nombre: {
                       [Op.like]: `%${q}%`
                     },
-                    categoriaId: cat_id
+                    // categoriaId: cat_id
                   },
                   offset: offset,
                   limit: limit,
