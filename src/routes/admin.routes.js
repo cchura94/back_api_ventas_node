@@ -28,9 +28,7 @@ RouteAdmin.put("/categoria/:id", authMiddleware.auth, categoriaController.modifi
 RouteAdmin.delete("/categoria/:id", authMiddleware.auth, categoriaController.eliminar);
 
 // actualizacion de imagen
-RouteAdmin.post("/producto/:id/actualizar-imagen", upload.single("imagen"), function(req, res){
-    res.send({"mensaje": "Imagen subida"})
-});
+RouteAdmin.post("/producto/:id/actualizar-imagen", upload.single("imagen"), productoController.actualizarImagen);
 
 RouteAdmin.get("/producto", authMiddleware.auth, productoController.listar);
 RouteAdmin.post("/producto", authMiddleware.auth, productoController.guardar);

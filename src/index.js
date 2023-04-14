@@ -12,6 +12,8 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// static
+app.use(express.static('public'))
 // rutas
 app.use('/api', RouteAuth)
 app.use('/api/v1', RouteAdmin)

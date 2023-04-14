@@ -44,6 +44,18 @@ export default {
         }
 
     },
+    actualizarImagen: async(req, res) => {
+        let id = req.params.id;
+        let datos = {}
+        if(req.file){
+            datos.imagen = req.file.filename;
+        }
+
+        await models.Producto.update(datos, {where: {id}})
+
+        return res.status(200).json({message: "Imagen Actualizada"});
+
+    },
     mostrar: (req, res) => {
 
     },
