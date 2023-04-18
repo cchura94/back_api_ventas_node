@@ -21,10 +21,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Pedido.init({
-    fecha: DataTypes.DATE,
+    fecha: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
     cod_ped: DataTypes.STRING,
-    estado_pedido: DataTypes.INTEGER,
-    clienteId: DataTypes.INTEGER,
+    estado_pedido: {
+      type: DataTypes.INTEGER,
+      defaultValue: 1
+    },
+    clienteId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     observacion: DataTypes.TEXT
   }, {
     sequelize,

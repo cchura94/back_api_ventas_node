@@ -1,5 +1,6 @@
 // https://dev.to/nedsoft/central-error-handling-in-express-3aej
 import models from "../database/models/index"
+import { ErrorHandler } from "../helpers/error";
 
 export default {
     listar: async (req, res) => {
@@ -10,6 +11,7 @@ export default {
 
         }catch(err){
             return res.status(500).json({message:err.message});
+            // throw new ErrorHandler(500, 'error en la consulta')
         }
     },
     guardar: async (req, res) => {

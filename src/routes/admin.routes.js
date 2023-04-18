@@ -21,7 +21,7 @@ const upload = multer({ storage: storageLocal })
 
 export const RouteAdmin = Router()
 
-RouteAdmin.get("/categoria",/* authMiddleware.auth, */categoriaController.listar);
+RouteAdmin.get("/categoria", authMiddleware.auth, categoriaController.listar);
 RouteAdmin.post("/categoria", authMiddleware.auth, categoriaController.guardar);
 RouteAdmin.post("/categoria-mostrar", authMiddleware.auth, categoriaController.mostrar);
 RouteAdmin.put("/categoria/:id", authMiddleware.auth, categoriaController.modificar);

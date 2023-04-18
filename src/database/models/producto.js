@@ -40,8 +40,20 @@ module.exports = (sequelize, DataTypes) => {
     stock: DataTypes.INTEGER,
     imagen: DataTypes.STRING,
     descripcion: DataTypes.TEXT,
-    estado: DataTypes.INTEGER,
-    categoriaId: DataTypes.INTEGER
+    estado: {
+      type: DataTypes.INTEGER,
+      defaultValue: 1
+    },
+    categoriaId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          args: true,
+          msg: 'La categoria no debe estar vacio'
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Producto',

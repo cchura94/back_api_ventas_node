@@ -13,7 +13,9 @@ export default {
 
         // si el usuario no existe
         if(!user){
-            return res.status(401).json({message: "Credeciales Incorrectas"})
+            // return res.status(401).json({message: "Credeciales Incorrectas"})
+            throw new ErrorHandler(401, 'Credeciales Incorrectas')
+            
         }
 
         // verificar la contraseña
