@@ -1,6 +1,7 @@
 import models from "./../database/models"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+import { ErrorHandler } from "../helpers/error"
 
 export default {
     async login(req, res){

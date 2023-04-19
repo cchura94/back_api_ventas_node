@@ -1,7 +1,9 @@
 import { Router } from "express"
 import categoriaController from "../controllers/categoria.controller"
 import productoController from "../controllers/producto.controller"
+import pedidoController from "../controllers/pedido.controller"
 import * as authMiddleware from "./../middlewares/auth.middleware"
+import { pedidoCheck, productoCheck } from "../helpers/validators"
 
 // para subida de archivos
 import multer from "multer"
@@ -31,8 +33,16 @@ RouteAdmin.delete("/categoria/:id", authMiddleware.auth, categoriaController.eli
 RouteAdmin.post("/producto/:id/actualizar-imagen", upload.single("imagen"), productoController.actualizarImagen);
 
 RouteAdmin.get("/producto", authMiddleware.auth, productoController.listar);
-RouteAdmin.post("/producto", authMiddleware.auth, productoController.guardar);
+RouteAdmin.post("/producto", authMiddleware.auth, productoCheck(), productoController.guardar);
 RouteAdmin.get("/producto/:id", authMiddleware.auth, productoController.mostrar);
 RouteAdmin.put("/producto/:id", authMiddleware.auth, productoController.modificar);
 RouteAdmin.delete("/producto/:id", authMiddleware.auth, productoController.eliminar);
 
+// nuevo Cliente
+RouteAdmin.post("/pedido/nuevo-cliente", authMiddleware.auth, pedidoController.nuevoCliente);
+
+RouteAdmin.get("/pedido", authMiddleware.auth, pedidoController.listar);
+RouteAdmin.post("/pedido", authMiddleware.auth, pedidoCheck(), pedidoController.guardar);
+RouteAdmin.get("/pedido/:id", authMiddleware.auth, pedidoController.mostrar);
+RouteAdmin.put("/pedido/:id", authMiddleware.auth, pedidoController.modificar);
+RouteAdmin.delete("/pedido/:id", authMiddleware.auth, pedidoController.eliminar);
