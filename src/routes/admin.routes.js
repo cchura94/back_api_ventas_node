@@ -40,6 +40,7 @@ RouteAdmin.delete("/producto/:id", authMiddleware.auth, productoController.elimi
 
 // nuevo Cliente
 RouteAdmin.post("/pedido/nuevo-cliente", authMiddleware.auth, pedidoController.nuevoCliente);
+RouteAdmin.get("/pedido/buscar-cliente", authMiddleware.auth, pedidoController.buscarCliente);
 
 RouteAdmin.get("/pedido", authMiddleware.auth, pedidoController.listar);
 RouteAdmin.post("/pedido", authMiddleware.auth, pedidoCheck(), pedidoController.guardar);

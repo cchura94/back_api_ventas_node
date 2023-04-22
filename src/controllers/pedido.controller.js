@@ -1,11 +1,14 @@
 // https://dev.to/nedsoft/central-error-handling-in-express-3aej
+import { Op } from "sequelize";
 import models from "../database/models/index"
 import { ErrorHandler } from "../helpers/error";
 
 export default {
     listar: async (req, res) => {
         try{
-            const pedidos = await models.Pedido.findAll();
+            const pedidos = await models.Pedido.findAll({
+                include: [models.Cliente, models.Producto]
+            });
     
             return res.status(200).json(pedidos);
 
@@ -62,6 +65,20 @@ export default {
         } catch (error) {
             return res.status(422).json({message: error.message})
         }
+
+    },
+    buscarCliente: async (req, res) => {
+        // ?buscar=juan
+        const q = req.query.buscar;
+        const clie = await models.Cliente.findOne({
+            where: {
+                nombre_completo: {
+                    [Op.like]: `%${q}%`
+                }
+            }
+        });
+
+        res.status(200).json(clie)
 
     },
     mostrar: async (req, res) => {
