@@ -17,10 +17,14 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "categoriaId"
       });
       models.Producto.belongsToMany(models.Pedido, {
-        through: "PedidoProducto"
+        through: "PedidoProducto",
+        foreignKey: 'ProductoId',
+        // replaces `categoryId`
+        otherKey: 'PedidoId' // replaces `productId`
       });
     }
   }
+
   Producto.init({
     nombre: {
       type: DataTypes.STRING,

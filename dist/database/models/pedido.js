@@ -16,10 +16,14 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "clienteId"
       });
       models.Pedido.belongsToMany(models.Producto, {
-        through: "pedidoproductos"
+        through: "PedidoProducto",
+        foreignKey: 'pedidoId',
+        // replaces `categoryId`
+        otherKey: 'productoId' // replaces `productId`
       });
     }
   }
+
   Pedido.init({
     fecha: {
       type: DataTypes.DATE,
