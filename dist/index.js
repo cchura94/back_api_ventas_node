@@ -6,7 +6,9 @@ var _error = require("./helpers/error");
 var _auth = require("./routes/auth.routes");
 var _admin = require("./routes/admin.routes");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var history = require('connect-history-api-fallback');
 const app = (0, _express.default)();
+app.use(history());
 const PORT = process.env.PORT || 3000;
 app.use((0, _cors.default)());
 
@@ -18,6 +20,10 @@ app.use(_express.default.urlencoded({
 
 // static
 app.use(_express.default.static('public'));
+app.use((req, res) => {
+  console.log(path.join(__dirname, 'public/index.html'));
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 // rutas
 app.use('/api', _auth.RouteAuth);
 app.use('/api/v1', _admin.RouteAdmin);

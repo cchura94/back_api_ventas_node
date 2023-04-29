@@ -17,3 +17,15 @@ Content-Type: application/json
     "email": "cristian@mail.com",
     "password": "cristian54321"
 }
+
+### Registro del servidor
+
+POST https://ventas.onrender.com/api/auth/register
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "Cristian",
+    "email": "admin@mail.com",
+    "password": "admin54321"
+}

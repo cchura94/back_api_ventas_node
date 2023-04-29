@@ -1,11 +1,14 @@
 import express from "express"
 import cors from "cors"
+var history = require('connect-history-api-fallback');
+
 import { ErrorHandler, handleError } from "./helpers/error"
 
 import { RouteAuth } from "./routes/auth.routes"
 import { RouteAdmin } from "./routes/admin.routes"
 
 const app = express();
+app.use(history());
 
 const PORT = process.env.PORT || 3000
 
@@ -17,6 +20,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // static
 app.use(express.static('public'))
+app.use((req, res) => {
+    console.log(path.join(__dirname, 'public/index.html'))
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 // rutas
 app.use('/api', RouteAuth)
 app.use('/api/v1', RouteAdmin)
