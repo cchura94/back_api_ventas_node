@@ -7,6 +7,8 @@ import { RouteAdmin } from "./routes/admin.routes"
 
 const app = express();
 
+const PORT = process.env.PORT || 3000
+
 app.use(cors())
 
 // para: req.body
@@ -27,6 +29,6 @@ app.use((err, req, res, next) => {
     handleError(err, res)
 })
 
-app.listen(3000, () => {
-    console.log('Servidor Corriendo PRUEBA 2');
+app.listen(PORT, () => {
+    console.log('Servidor Corriendo');
 })
