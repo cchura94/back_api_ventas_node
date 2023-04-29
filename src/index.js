@@ -20,10 +20,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // static
 app.use(express.static('public'))
-app.use((req, res) => {
-    console.log(path.join(__dirname, 'public/index.html'))
-    res.sendFile(path.join(__dirname, 'public/index.html'));
-});
 // rutas
 app.use('/api', RouteAuth)
 app.use('/api/v1', RouteAdmin)
