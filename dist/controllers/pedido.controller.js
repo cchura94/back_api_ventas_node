@@ -27,13 +27,12 @@ var _default = {
   getProductos: async (req, res) => {
     try {
       let id = req.params.id;
-      const pedido = await _index.default.Pedido.findOne({
+      const productos = await _index.default.Producto.findAll({
         where: {
-          id: id
-        },
-        include: [_index.default.Producto]
+          pedidoId: id
+        }
       });
-      return res.status(200).json(pedido);
+      return res.status(200).json(productos);
     } catch (err) {
       return res.status(500).json({
         message: err.message
