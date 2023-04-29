@@ -13,7 +13,7 @@ var _default = {
   listar: async (req, res) => {
     try {
       const pedidos = await _index.default.Pedido.findAll({
-        // include: [models.Cliente, models.Producto]
+        include: [_index.default.Cliente]
       });
       return res.status(200).json(pedidos);
     } catch (err) {
