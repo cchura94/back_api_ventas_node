@@ -29,3 +29,6 @@ Content-Type: application/json
     "email": "admin@mail.com",
     "password": "admin54321"
 }
+
+### 
+GET https://ventas.onrender.com/api/v1/pedido/1/get-productos

@@ -20,13 +20,14 @@ export default {
     getProductos: async(req, res) => {
         try {
             let id = req.params.id
-            const productos = await models.Producto.findAll({
+            const pedido = await models.Pedido.findOne({
                 where: {
-                    pedidoId: id
+                    id: id
                 },
+                include: [models.Producto]
             });
 
-            return res.status(200).json(productos);
+            return res.status(200).json(pedido);
 
         }catch(err){
             return res.status(500).json({message:err.message});
