@@ -1,11 +1,11 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development2",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "port": "3306"
+    "username": "bd_ventas_user",
+    "password": "xrzsx6hvC8AAjQvGoehCUlJPOrHAGX2U",
+    "database": "bd_ventas",
+    "host": "dpg-ch68b102qv26p1f9i80g-a.oregon-postgres.render.com",
+    "dialect": "postgres",
+    "port": "5432"
   },
   "test": {
     "username": "root",
