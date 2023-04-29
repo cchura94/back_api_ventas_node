@@ -7,8 +7,7 @@ export default {
     listar: async (req, res) => {
         try{
             const pedidos = await models.Pedido.findAll({
-                include: [models.Cliente],
-                include: [models.Producto]
+                include: [models.Cliente, models.Producto]
             });
     
             return res.status(200).json(pedidos);

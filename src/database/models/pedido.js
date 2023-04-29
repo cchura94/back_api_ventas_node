@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       models.Pedido.belongsToMany(models.Producto, {
-        through: "PedidoProducto"
+        through: "pedidoproductos"
       })
     }
   }
