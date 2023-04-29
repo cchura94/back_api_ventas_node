@@ -7,6 +7,7 @@ var _auth = require("./routes/auth.routes");
 var _admin = require("./routes/admin.routes");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const app = (0, _express.default)();
+const PORT = process.env.PORT || 3000;
 app.use((0, _cors.default)());
 
 // para: req.body
@@ -26,6 +27,6 @@ app.get("/error", (req, res) => {
 app.use((err, req, res, next) => {
   (0, _error.handleError)(err, res);
 });
-app.listen(3000, () => {
-  console.log('Servidor Corriendo PRUEBA 2');
+app.listen(PORT, () => {
+  console.log('Servidor Corriendo');
 });
