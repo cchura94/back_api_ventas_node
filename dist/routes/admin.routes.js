@@ -38,6 +38,10 @@ RouteAdmin.delete("/categoria/:id", authMiddleware.auth, _categoria.default.elim
 
 // actualizacion de imagen
 RouteAdmin.post("/producto/:id/actualizar-imagen", upload.single("imagen"), _producto.default.actualizarImagen);
+
+// obtener productos por pedido
+
+RouteAdmin.get("/pedido/:id/get-productos", /*authMiddleware.auth,*/_pedido.default.getProductos);
 RouteAdmin.get("/producto", authMiddleware.auth, _producto.default.listar);
 RouteAdmin.post("/producto", authMiddleware.auth, (0, _validators.productoCheck)(), _producto.default.guardar);
 RouteAdmin.get("/producto/:id", authMiddleware.auth, _producto.default.mostrar);

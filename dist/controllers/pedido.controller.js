@@ -13,9 +13,27 @@ var _default = {
   listar: async (req, res) => {
     try {
       const pedidos = await _index.default.Pedido.findAll({
-        include: [_index.default.Cliente, _index.default.Producto]
+        include: [_index.default.Cliente]
       });
       return res.status(200).json(pedidos);
+    } catch (err) {
+      return res.status(500).json({
+        message: err.message
+      });
+      // throw new ErrorHandler(500, 'error en la consulta')
+    }
+  },
+
+  getProductos: async (req, res) => {
+    try {
+      let id = req.params.id;
+      const pedido = await _index.default.Pedido.findOne({
+        where: {
+          id: id
+        },
+        include: [_index.default.Producto]
+      });
+      return res.status(200).json(pedido);
     } catch (err) {
       return res.status(500).json({
         message: err.message

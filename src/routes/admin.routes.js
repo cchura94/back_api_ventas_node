@@ -32,6 +32,11 @@ RouteAdmin.delete("/categoria/:id", authMiddleware.auth, categoriaController.eli
 // actualizacion de imagen
 RouteAdmin.post("/producto/:id/actualizar-imagen", upload.single("imagen"), productoController.actualizarImagen);
 
+
+// obtener productos por pedido
+
+RouteAdmin.get("/pedido/:id/get-productos", /*authMiddleware.auth,*/ pedidoController.getProductos);
+
 RouteAdmin.get("/producto", authMiddleware.auth, productoController.listar);
 RouteAdmin.post("/producto", authMiddleware.auth, productoCheck(), productoController.guardar);
 RouteAdmin.get("/producto/:id", authMiddleware.auth, productoController.mostrar);

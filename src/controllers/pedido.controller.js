@@ -7,7 +7,7 @@ export default {
     listar: async (req, res) => {
         try{
             const pedidos = await models.Pedido.findAll({
-                include: [models.Cliente, models.Producto]
+                include: [models.Cliente]
             });
     
             return res.status(200).json(pedidos);
@@ -16,6 +16,24 @@ export default {
             return res.status(500).json({message:err.message});
             // throw new ErrorHandler(500, 'error en la consulta')
         }
+    },
+    getProductos: async(req, res) => {
+        try {
+            let id = req.params.id
+            const pedido = await models.Pedido.findOne({
+                where: {
+                    id: id
+                },
+                include: [models.Producto]
+            });
+
+            return res.status(200).json(pedido);
+
+        }catch(err){
+            return res.status(500).json({message:err.message});
+            // throw new ErrorHandler(500, 'error en la consulta')
+        }
+
     },
     guardar: async (req, res) => {
         try {

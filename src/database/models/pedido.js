@@ -16,9 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       models.Pedido.belongsToMany(models.Producto, {
-        through: "PedidoProducto",
-        foreignKey: 'pedidoId', // replaces `categoryId`
-        otherKey: 'productoId' // replaces `productId`
+        through: "PedidoProducto"
       })
     }
   }
